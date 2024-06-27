@@ -41,7 +41,7 @@ You can run the script from the command line:
  
    ```bash
    ./pdf_redactor.py [-h] -i INPUT [-e] [-l] [-p] [-v] [-m MASK] [-t TEXT] 
-                   [-c {white,black,red,green,blue}] [-d] [-f] [-s] [-b]
+                     [-c {white,black,red,green,blue}] [-d] [-f] [-s] [-b]
    ```
 Below are the available options:
 
