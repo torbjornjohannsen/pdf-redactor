@@ -1,0 +1,3 @@
+fitz==0.0.1.dev2
+phonenumbers==8.13.39
+Pillow==10.3.0
