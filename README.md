@@ -37,7 +37,7 @@ You can run the script from the command line. Below are the available options:
    pdf_redactor.py [-h] -i INPUT [-e] [-l] [-p] [-v] [-m MASK] [-t TEXT]
                    [-c {white,black,red,green,blue}] [-d] [-f] [-s] [-b]
 
-### Options:
+## Options
 
 - `-h`, `--help`: Show help message and exit.
 - `-i INPUT`, `--input INPUT`: Filename to be processed.
