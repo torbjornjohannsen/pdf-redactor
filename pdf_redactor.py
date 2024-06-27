@@ -122,7 +122,7 @@ def redact_phone_numbers(pdf_document, all_phone_numbers, args):
                         # apply redactions to page    
                         page.apply_redactions(images=fitz.PDF_REDACT_IMAGE_NONE)
     else:
-        print("[i] No Phone Number found...")
+        print("\n[i] No Phone Number found...\n")
 
 
 
