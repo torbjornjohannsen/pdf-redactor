@@ -30,13 +30,17 @@ To install PDFRedactor, follow these steps:
    ```bash
    pip3 install -r requirements.txt
    ```
+4. Make the script executable:
 
+   ```bash
+   chmod a+x pdf_redactor.py
+   ```
 ## Usage
 
 You can run the script from the command line:
  
    ```bash
-   pdf_redactor.py [-h] -i INPUT [-e] [-l] [-p] [-v] [-m MASK] [-t TEXT] 
+   ./pdf_redactor.py [-h] -i INPUT [-e] [-l] [-p] [-v] [-m MASK] [-t TEXT] 
                    [-c {white,black,red,green,blue}] [-d] [-f] [-s] [-b]
    ```
 Below are the available options:
@@ -62,17 +66,17 @@ Below are the available options:
 1. Redact phone numbers from a single PDF file:
    
    ```bash
-   pdf_redactor.py -i input_file.pdf -p
+   ./pdf_redactor.py -i input_file.pdf -p
    ```
 2. To redact email addresses and preview redacted areas:
 
    ```bash
-   pdf_redactor.py -i input_file.pdf -e -v
+   ./pdf_redactor.py -i input_file.pdf -e -v
    ```
 3. Redact custom text patterns and specify redaction text from directory of files:
 
    ```bash
-   pdf_redactor.py -i directory_path -m "CONFIDENTIAL" -t "[REDACTED]"
+   ./pdf_redactor.py -i directory_path -m "CONFIDENTIAL" -t "[REDACTED]"
    ```
    
 ## Preview Redactions
