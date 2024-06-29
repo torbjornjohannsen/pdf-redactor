@@ -30,14 +30,15 @@ To install PDFRedactor, follow these steps:
    ```bash
    pip3 install -r requirements.txt
    ```
-4. Make the script executable:
+4. Make the script executable or pass the script directly to python:
 
    ```bash
-   chmod a+x pdf_redactor.py
+   chmod +x pdf_redactor.py
    ```
-## Usage
 
-You can run the script from the command line:
+## Quick start
+
+You can run the executable script from the command line:
  
    ```bash
    ./pdf_redactor.py [-h] -i INPUT [-e] [-l] [-p] [-v] [-m MASK] [-t TEXT] 
@@ -73,7 +74,7 @@ Below are the available options:
    ```bash
    ./pdf_redactor.py -i input_file.pdf -e -v
    ```
-3. Redact custom text patterns and specify redaction text from directory of files:
+3. Redact a custom text pattern and specify redaction text for a directory of PDF files:
 
    ```bash
    ./pdf_redactor.py -i directory_path -m "CONFIDENTIAL" -t "[REDACTED]"
@@ -83,6 +84,11 @@ Below are the available options:
 
 When using the `-v` or `--preview` option, the script will display a preview of each redacted area on each page and prompt you to continue with the redaction or abort.
 
+## Limitations
+
+- Most detection features rely on regular expressions, which may not cover all possible formats or variations.
+- PDFRedactor CANNOT (yet) redact vector graphics, images, XObjects, metadata, names, adressess, SSNs, tables, labels etc.
+
 ## License
 
 This project is licensed under the MIT License.
@@ -90,7 +96,7 @@ This project is licensed under the MIT License.
 ## Acknowledgments
 
 - This tool utilizes the PyMuPDF library for OCR and PDF processing [PyMuPDF](https://github.com/pymupdf/PyMuPDF).
-- To match phone numbers, I used David Drysdales Python port of Google's libphonenumber [python-phonenumbers](https://github.com/daviddrysdale/python-phonenumbers)
+- To detect phone numbers, I used David Drysdales Python port of Google's libphonenumber [python-phonenumbers](https://github.com/daviddrysdale/python-phonenumbers)
 
 ## Contributing
 
