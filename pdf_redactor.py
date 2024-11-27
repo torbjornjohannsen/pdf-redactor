@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import fitz  # PyMuPDF
+import pymupdf as fitz
 import phonenumbers
 import os
 import argparse
