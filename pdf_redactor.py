@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import fitz  # PyMuPDF
+import pymupdf as fitz
 import phonenumbers
 import os
 import argparse
@@ -98,7 +98,7 @@ def find_phone_numbers(text_pages):
         for match in phonenumbers.PhoneNumberMatcher(text_page, None):
             page_phone_numbers.append(match.raw_string)
             all_phone_numbers.append(match.raw_string)
-        print(f" |  Found {len(page_phone_numbers)} Phone Number{"" if len(page_phone_numbers)==1 else "s"} on Page {i+1}: {', '.join(str(p) for p in page_phone_numbers)}")
+        print(f" |  Found {len(page_phone_numbers)} Phone Number{'' if len(page_phone_numbers)==1 else 's'} on Page {i+1}: {', '.join(str(p) for p in page_phone_numbers)}")
 
     return all_phone_numbers
 
@@ -133,7 +133,7 @@ def redact_links(pdf_document, args):
     for page_num in range(len(pdf_document)):
         page = pdf_document.load_page(page_num)
         link_list = page.get_links()
-        print(f" |  Found {len(link_list)} Link{"" if len(link_list)==1 else "s"} on Page {page_num+1}: {', '.join(str(p['uri']) for p in link_list)}")
+        print(f" |  Found {len(link_list)} Link{'' if len(link_list)==1 else 's'} on Page {page_num+1}: {', '.join(str(p['uri']) for p in link_list)}")
         rect_list = [item['from'] for item in link_list]
         for rect in rect_list:
             anots = page.add_redact_annot(quad=rect, text=args.text, text_color=WHITE, fill=COLOR_MAP[args.color], cross_out=True)
@@ -153,7 +153,7 @@ def find_email_addresses(text_pages):
     for i, page in enumerate(text_pages):
         match = re.findall(extract_email_pattern, page)
         all_email_addresses.extend(match)
-        print(f" |  Found {len(match)} Email Address{"" if len(match)==1 else "es"} on Page {i+1}: {', '.join(str(p) for p in match)}")
+        print(f" |  Found {len(match)} Email Address{'' if len(match)==1 else 'es'} on Page {i+1}: {', '.join(str(p) for p in match)}")
     return all_email_addresses        
     
 
@@ -186,7 +186,7 @@ def find_custom_mask(text_pages, custom_mask):
     for i, page in enumerate(text_pages):
         match = re.findall(match_pattern, page, flags=re.IGNORECASE)
         hits.extend(match)
-        print(f" |  Found {len(match)} Mask Match{"" if len(match)==1 else "es"} on Page {i+1}: {', '.join(str(p) for p in match)}")
+        print(f" |  Found {len(match)} Mask Match{'' if len(match)==1 else 'es'} on Page {i+1}: {', '.join(str(p) for p in match)}")
 
     return hits     
 
@@ -221,7 +221,7 @@ def find_ibans(text_pages):
     for i, page in enumerate(text_pages):
         match = re.findall(match_pattern, page, flags=re.IGNORECASE)
         hits.extend(match)
-        print(f" |  Found {len(match)} IBAN{"" if len(match)==1 else "s"} on Page {i+1}: {', '.join(str(p) for p in match)}")
+        print(f" |  Found {len(match)} IBAN{'' if len(match)==1 else 's'} on Page {i+1}: {', '.join(str(p) for p in match)}")
 
     return hits  
 
@@ -254,7 +254,7 @@ def find_bics(text_pages):
     for i, page in enumerate(text_pages):
         match = re.findall(match_pattern, page)
         hits.extend(match)
-        print(f" |  Found {len(match)} BIC{"" if len(match)==1 else "s"} on Page {i+1}: {', '.join(str(p) for p in match)}")
+        print(f" |  Found {len(match)} BIC{'' if len(match)==1 else 's'} on Page {i+1}: {', '.join(str(p) for p in match)}")
 
     return hits  
 
@@ -287,7 +287,7 @@ def find_timestamp(text_pages):
     for i, page in enumerate(text_pages):
         match = re.findall(match_pattern, page)
         hits.extend(match)
-        print(f" |  Found {len(match)} Timestamp{"" if len(match)==1 else "s"} on Page {i+1}: {', '.join(str(p) for p in match)}")
+        print(f" |  Found {len(match)} Timestamp{'' if len(match)==1 else 's'} on Page {i+1}: {', '.join(str(p) for p in match)}")
 
     return hits  
 
@@ -326,7 +326,7 @@ def find_date(text_pages):
     for i, page in enumerate(text_pages):
         match = re.findall(match_pattern, page)
         hits.extend(match)
-        print(f" |  Found {len(match)} Date{"" if len(match)==1 else "s"} on Page {i+1}: {', '.join(str(p) for p in match)}")
+        print(f" |  Found {len(match)} Date{'' if len(match)==1 else 's'} on Page {i+1}: {', '.join(str(p) for p in match)}")
 
     return hits  
 
