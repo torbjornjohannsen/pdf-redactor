@@ -25,15 +25,21 @@ To install PDFRedactor, follow these steps:
 
 2. Cd into the cloned directory
 
-3. Install the required dependencies using pip:
+3. Set up virtual environment 
+   ```bash
+   python3 -m venv ~/.venvs/pdf-redactor
+   source ~/.venvs/pdf-redactor/bin/activate
+   ```
+
+4. Install the required dependencies using pip:
    
    ```bash
    pip3 install -r requirements.txt
    ```
-4. Make the script executable or pass the script directly to python:
+5. Symlink the script 
 
    ```bash
-   chmod +x pdf_redactor.py
+   ln -s ~/.venvs/pdf-redactor/bin/pdf-redactor /usr/local/bin/pdf-redactor
    ```
 
 ## Quick start
