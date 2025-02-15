@@ -42,7 +42,7 @@ _____  _____  ______ _____          _            _
 
 # save to file
 def save_redactions_to_file(pdf_document, filename):
-    filepath = os.path.dirname(os.path.abspath(__file__))+"/"+filename
+    filepath = filename
     print(f"\n[i] Saving changes to '{filepath}'")
     pdf_document.ez_save(filepath)
 
